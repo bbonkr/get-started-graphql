@@ -1,0 +1,38 @@
+type User {
+  id: Int!
+  name: String!
+  age: Int!
+  gender: String!
+}
+
+type Movie {
+  id: Int!
+  title: String!
+  score: Int!
+}
+
+type MovieItem {
+  id: Int!
+  title: String!
+  title_english: String!
+  title_long: String!
+  year: Int!
+  rating: Float!
+  summary: String!
+  imdb_code: String!
+  large_cover_image: String!
+}
+
+type Query {
+  name: String!
+  user(id: Int!): User
+  users: [User]!
+  movies: [Movie]!
+  movie(id: Int!): Movie
+  listOfMovies(limit: Int!, minimum_rating: Int!): [MovieItem]!
+}
+
+type Mutation {
+  addMovie(title: String!, score: Int!): Movie!
+  removeMovie(id: Int!): Boolean!
+}
